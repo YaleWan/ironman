@@ -10,7 +10,7 @@
 
   "javascript.validate.enable": false,
   "javascript.format.enable": false,
-  "typescript.format.enable": false,
+  "typescript.format.enable": true,
 
   "search.exclude": {
     ".git": true,
@@ -26,5 +26,8 @@
     "test/**/__snapshots__": true,
     "yarn.lock": true,
     "*.{css,sass,scss}.d.ts": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
 }

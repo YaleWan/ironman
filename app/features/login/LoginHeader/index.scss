@@ -1,0 +1,25 @@
+.loginHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to right, #55aefb, #0396ff);
+  -webkit-app-region: drag;
+}
+.logo {
+  line-height: 40px;
+  color: #fff;
+  padding-left: 20px;
+}
+.icon {
+  color: #fff;
+}
+.icon span {
+  -webkit-app-region: no-drag;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.icon span:hover {
+  color: #55aefb;
+}

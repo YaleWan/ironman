@@ -116,10 +116,16 @@ export default merge.smart(baseConfig, {
         test: /^((?!\.global).)*\.(scss|sass)$/,
         use: [
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: 'style-loader',
           },
           {
-            loader: 'typings-for-css-modules-loader',
+            loader: '@teamsupercell/typings-for-css-modules-loader',
+            options: {
+              formatter: 'prettier',
+            },
+          },
+          {
+            loader: 'css-loader',
             options: {
               modules: {
                 localIdentName: '[name]__[local]__[hash:base64:5]',
@@ -192,6 +198,7 @@ export default merge.smart(baseConfig, {
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@': path.join(__dirname, 'app'),
     },
   },
   plugins: [
