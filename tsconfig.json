@@ -20,7 +20,23 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "allowJs": true
+    "allowJs": true,
+    "baseUrl": "./",
+    "paths": {
+      /*路径映射的集合*/
+      "@public/*": ["public/*"],
+      "@app/*": ["app/*"],
+      "@assets/*": ["app/assets/*"],
+      "@styles/*": ["app/assets/styles/*"],
+      "@common/*": ["app/common/*"],
+      "@components/*": ["app/components/*"],
+      "@library/*": ["app/library/*"],
+      "@routes/*": ["app/routes/*"],
+      "@store/*": ["app/store/*"],
+      "@server/*": ["app/server/*"],
+      "@api/*": ["app/server/api/*"],
+      "@utils/*": ["app/utils/*"]
+    }
   },
   "exclude": [
     "test",

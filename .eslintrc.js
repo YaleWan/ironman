@@ -2,6 +2,7 @@ module.exports = {
   extends: 'erb/typescript',
   rules: {
     'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,

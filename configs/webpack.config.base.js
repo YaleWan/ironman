@@ -6,6 +6,8 @@ import path from 'path';
 import webpack from 'webpack';
 import { dependencies as externals } from '../app/package.json';
 
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 export default {
   externals: [...Object.keys(externals || {})],
 
@@ -36,9 +38,12 @@ export default {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [path.join(__dirname, '..', 'app'), 'node_modules'],
-    alias: {
-      '@': path.join(__dirname, 'app'),
-    },
+    plugins: [
+      // 将 tsconfig.json 中的路径配置映射到 webpack 中
+      new TsconfigPathsPlugin({
+        configFile: './tsconfig.json',
+      }),
+    ],
   },
 
   plugins: [
