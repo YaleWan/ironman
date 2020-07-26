@@ -9,7 +9,7 @@ import {
   minimizeWin,
   closeWin,
   setFullScreen,
-} from '../../../utils/electronApi';
+} from '@app/utils/electronApi';
 
 export default function LoginHeader() {
   return (

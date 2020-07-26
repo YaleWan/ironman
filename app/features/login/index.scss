@@ -26,17 +26,22 @@
   flex-direction: column;
   margin-top: 20px;
 }
-.autoLogin{
+.autoLogin {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #c6def5;
   margin: 20px 0;
-  span{
+  span {
     font-size: 12px;
   }
-  :global .ant-btn{
-    padding: 0;
-    font-size: 12px;
+  :global {
+    .ant-btn {
+      padding: 0;
+      font-size: 12px;
+    }
+    .ant-btn-link {
+      color: #d5d5d5;
+    }
   }
 }

@@ -3,7 +3,7 @@
  * @Author: yhwang
  * @Date: 2020-07-22 15:09:22
  * @LastEditors: yhwang
- * @LastEditTime: 2020-07-22 15:31:52
+ * @LastEditTime: 2020-07-23 22:46:51
  */
 const { remote } = require('electron');
 // 窗口最小化
@@ -14,7 +14,7 @@ export function minimizeWin() {
 export function closeWin() {
   return remote.getCurrentWindow().close();
 }
-
+// 放大/缩小
 export function setFullScreen() {
   const win = remote.getCurrentWindow();
   if (win.isMaximized()) {
@@ -23,4 +23,7 @@ export function setFullScreen() {
   } else {
     win.maximize(); // 最大化窗口
   }
+}
+export function setScreenSize(x: number, y: number) {
+  return remote.getCurrentWindow().setSize(x, y);
 }

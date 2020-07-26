@@ -1,0 +1,22 @@
+.sidebar{
+  width: 60px;
+  height: 100vh;
+  background-color: #157ff5;
+  -webkit-app-region: drag;
+  text-align: center;
+  padding: 20px 0;
+
+}
+.menuItem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 20px;
+  span{
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+}

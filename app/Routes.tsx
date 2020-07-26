@@ -21,8 +21,8 @@ export default function Routes() {
       <Switch>
         <Route path={routes.LOGIN} component={LoginPage} />
         <Route path={routes.COUNTER} component={CounterPage} />
-
-        <Route path={routes.HOME} component={HomePage} />
+        <Route path={routes.HOME} component={HomePage}>
+        </Route>
       </Switch>
     </App>
   );

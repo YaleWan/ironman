@@ -1,6 +1,6 @@
 import React from 'react';
-import Home from '../components/Home';
+import Home from '../components/Home/index';
 
-export default function HomePage() {
-  return <Home />;
+export default function HomePage(props:any) {
+  return <Home {...props}/>;
 }

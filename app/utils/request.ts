@@ -8,7 +8,7 @@ import { message } from 'antd';
 
 // create an axios instance
 const service: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: 'http://127.0.0.1:7071/',
   timeout: 5000, // request timeout
 });
 
@@ -26,15 +26,14 @@ service.interceptors.response.use(
   (response: AxiosResponse) => {
     const res = response.data;
 
-    if (res.code !== 2000) {
+    if (res.status !== 200) {
       message.error(res.message || 'Error');
-
       return Promise.reject(new Error(res.message || 'Error'));
     }
     return res;
   },
   (error) => {
-    message.error(error.message || 'Error');
+    message.error(error.response.data.message || 'Error');
     return Promise.reject(error);
   }
 );

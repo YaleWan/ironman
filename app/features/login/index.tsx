@@ -4,27 +4,35 @@ import { UserOutlined } from '@ant-design/icons';
 import { login } from '@app/services/user';
 import style from './index.scss';
 import LoginHeader from './LoginHeader';
+import { setScreenSize } from '@app/utils/electronApi';
+import {useHistory} from 'react-router-dom'
+import routes from '@app/constants/routes.json';
+
 
 const { TabPane } = Tabs;
 
-const { remote } = require('electron');
-
 export default function Login() {
   useEffect(() => {
-    remote.getCurrentWindow().setSize(300, 440);
+    setScreenSize(300, 440);
   }, []);
-  const [tel, setTel] = useState('');
+  const history = useHistory()
+  const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
   const [isAutoLogin, setIsAutoLogin] = useState(false);
   const onCheckBoxChange = () => {
     setIsAutoLogin(!isAutoLogin);
   };
   const userlogin = async () => {
-    const params = { tel, password };
+    if (!account || !password) {
+      return;
+    }
+    const params = { account, password };
     const data = await login(params);
-    console.log('data :>> ', data);
+    if (data.status === 200) {
+      history.push(routes.HOME)
+      setScreenSize(1100, 800);
+    }
   };
-
   return (
     <>
       <LoginHeader />
@@ -39,8 +47,8 @@ export default function Login() {
               <Avatar size={64} icon={<UserOutlined />} />
               <Input
                 placeholder="请输入手机号码"
-                value={tel}
-                onChange={(e) => setTel(e.target.value)}
+                value={account}
+                onChange={(e) => setAccount(e.target.value)}
               />
               <Input
                 placeholder="请输入密码"
@@ -55,9 +63,9 @@ export default function Login() {
                 </Checkbox>
               </div>
               <div>
-                <Button type="text">忘记密码</Button>
+                <Button type="link">忘记密码</Button>
                 <Divider type="vertical" />
-                <Button type="text">新用户注册</Button>
+                <Button type="link">新用户注册</Button>
               </div>
             </div>
             <Button type="primary" block onClick={userlogin}>
