@@ -3,6 +3,7 @@ module.exports = {
   rules: {
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
+    'react/jsx-one-expression-per-line': 'off'
   },
   parserOptions: {
     ecmaVersion: 2020,
