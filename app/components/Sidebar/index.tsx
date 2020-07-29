@@ -7,7 +7,7 @@ import style from './index.scss';
 export default function Sidebar(): JSX.Element {
   const history = useHistory();
   const jumpTo = () => {
-    history.push('/home/menu');
+    history.push('/home/project');
   };
   return (
     <div>

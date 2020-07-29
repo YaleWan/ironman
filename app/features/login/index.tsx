@@ -16,9 +16,9 @@ export default function Login() {
     setScreenSize(300, 440);
   }, []);
   const history = useHistory()
-  const [account, setAccount] = useState('');
-  const [password, setPassword] = useState('');
-  const [isAutoLogin, setIsAutoLogin] = useState(false);
+  const [account, setAccount] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [isAutoLogin, setIsAutoLogin] = useState<boolean>(false);
   const onCheckBoxChange = () => {
     setIsAutoLogin(!isAutoLogin);
   };

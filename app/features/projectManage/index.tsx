@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs, Input, Select, Button } from 'antd';
+import { Tabs, Input, Select, Button, Table, Tag, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import ProjectHeader from './ProjectHeader';
 import style from './index.scss';
@@ -9,11 +9,8 @@ const { Option } = Select;
 const { Search } = Input;
 
 export default function ProjectManage(): JSX.Element {
-  const [projectName, setProjectName] = useState('');
-  const [projectType, setProjectType] = useState('');
-  const callback = (key: string) => {
-    console.log(key);
-  };
+  const [projectName, setProjectName] = useState<string>('');
+  const [projectType, setProjectType] = useState<string>('');
   const SearchForm = (
     <div>
       <Select
@@ -34,14 +31,86 @@ export default function ProjectManage(): JSX.Element {
       <Button type="primary">重置</Button>
     </div>
   );
+  const columns = [
+    {
+      title: '项目名称',
+      dataIndex: 'projectName',
+      key: 'projectName',
+      // eslint-disable-next-line react/display-name
+      render: (text: string) => <Button type="link">{text}</Button>,
+    },
+    {
+      title: '项目类型',
+      key: 'projectType',
+      dataIndex: 'projectType',
+      // eslint-disable-next-line react/display-name
+      render: (tags: Array<string>) => (
+        <>
+          {tags.map((tag: string) => {
+            let color = '';
+            switch (tag) {
+              case 'vue':
+                color = '#3fb984';
+                break;
+              case 'react':
+                color = '#61dafb';
+                break;
+              case 'typescript':
+                color = '#294e80';
+                break;
+              default:
+                break;
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag}
+              </Tag>
+            );
+          })}
+        </>
+      ),
+    },
+    {
+      title: '描述',
+      dataIndex: 'projectDesc',
+      key: 'projectDesc',
+    },
+
+    {
+      title: 'Action',
+      key: 'action',
+      // eslint-disable-next-line react/display-name
+      render: () => (
+        <Space size="middle">
+          <Button type="link">编辑器打开</Button>
+        </Space>
+      ),
+    },
+  ];
+
+  const data = [
+    {
+      key: '1',
+      projectName: 'vue',
+      projectType: ['vue', 'typescript'],
+      projectDesc: 'New York No. 1 Lake Park',
+    },
+    {
+      key: '2',
+      projectName: 'react',
+      projectType: ['react'],
+      projectDesc: 'London No. 1 Lake Park',
+    },
+  ];
 
   return (
     <div>
       <ProjectHeader />
       <div className={style.contanier}>
-        <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs defaultActiveKey="1">
           <TabPane tab="本地项目管理" key="localProject">
             {SearchForm}
+            <Table columns={columns} dataSource={data} />
           </TabPane>
           <TabPane tab="线上项目管理" key="remoteProject">
             Content of Tab Pane 2

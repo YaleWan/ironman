@@ -12,11 +12,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: #fff;
   font-size: 12px;
   margin-top: 20px;
+  color:#eee;
+  -webkit-app-region: no-drag;
+
   span{
     font-size: 22px;
     margin-bottom: 5px;
   }
+}
+.activeMenu{
+  color: #fff;
+  font-size: 12px;
 }
