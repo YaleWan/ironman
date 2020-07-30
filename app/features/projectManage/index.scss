@@ -1,3 +1,9 @@
 .contanier{
   padding: 0 20px;
+  :global {
+    .ant-table-wrapper{
+      margin-top: 20px;
+    }
+  }
+
 }

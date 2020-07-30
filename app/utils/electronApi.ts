@@ -3,7 +3,7 @@
  * @Author: yhwang
  * @Date: 2020-07-22 15:09:22
  * @LastEditors: yhwang
- * @LastEditTime: 2020-07-23 22:46:51
+ * @LastEditTime: 2020-07-29 20:09:27
  */
 const { remote } = require('electron');
 // 窗口最小化
@@ -24,6 +24,24 @@ export function setFullScreen() {
     win.maximize(); // 最大化窗口
   }
 }
+// 设置屏幕大小
 export function setScreenSize(x: number, y: number) {
   return remote.getCurrentWindow().setSize(x, y);
+}
+// 打开工作目录
+export function openWorkSpace(): any {
+  return new Promise((resolve, reject) => {
+    const { dialog } = remote;
+    dialog
+      .showOpenDialog({
+        title: '选择工作区',
+        properties: ['openDirectory'],
+      })
+      .then((result) => {
+        return resolve(result.filePaths[0]);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 }

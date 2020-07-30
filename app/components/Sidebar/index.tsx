@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Avatar } from 'antd';
+import { Avatar, Tooltip } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
 import style from './index.scss';
 
@@ -14,8 +14,9 @@ export default function Sidebar(): JSX.Element {
       <div className={style.sidebar}>
         <Avatar src="https://avatars2.githubusercontent.com/u/42661750" />
         <div className={style.menuItem}>
-          <AppstoreOutlined onClick={jumpTo} />
-          项目管理
+          <Tooltip title="项目管理" placement="right" color="#000">
+            <AppstoreOutlined onClick={jumpTo} />
+          </Tooltip>
         </div>
       </div>
     </div>

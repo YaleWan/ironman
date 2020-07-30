@@ -4,12 +4,8 @@ import {
   BorderOutlined,
   CloseOutlined,
 } from '@ant-design/icons';
+import { minimizeWin, closeWin, setFullScreen } from '@app/utils/electronApi';
 import style from './index.scss';
-import {
-  minimizeWin,
-  closeWin,
-  setFullScreen,
-} from '@app/utils/electronApi';
 
 export default function LoginHeader() {
   return (

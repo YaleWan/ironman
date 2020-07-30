@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Tabs, Avatar, Input, Checkbox, Button, Divider } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { login } from '@app/services/user';
-import style from './index.scss';
-import LoginHeader from './LoginHeader';
 import { setScreenSize } from '@app/utils/electronApi';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import routes from '@app/constants/routes.json';
-
+import LoginHeader from './LoginHeader';
+import style from './index.scss';
 
 const { TabPane } = Tabs;
 
@@ -15,7 +14,7 @@ export default function Login() {
   useEffect(() => {
     setScreenSize(300, 440);
   }, []);
-  const history = useHistory()
+  const history = useHistory();
   const [account, setAccount] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isAutoLogin, setIsAutoLogin] = useState<boolean>(false);
@@ -29,7 +28,7 @@ export default function Login() {
     const params = { account, password };
     const data = await login(params);
     if (data.status === 200) {
-      history.push(routes.HOME)
+      history.push(routes.HOME);
       setScreenSize(1100, 800);
     }
   };

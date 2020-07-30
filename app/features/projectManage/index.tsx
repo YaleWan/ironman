@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Tabs, Input, Select, Button, Table, Tag, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import ProjectHeader from './ProjectHeader';
@@ -8,13 +8,24 @@ const { TabPane } = Tabs;
 const { Option } = Select;
 const { Search } = Input;
 
-export default function ProjectManage(): JSX.Element {
+export const ProjectManage: FC = () => {
   const [projectName, setProjectName] = useState<string>('');
   const [projectType, setProjectType] = useState<string>('');
+  // 重置
+  function reset() {
+    setProjectName('');
+    setProjectType('');
+  }
+  // 获取项目信息
+  function getProjectInfo(projectInfo: any): void {
+    console.log('projectInfo :>> ', projectInfo);
+  }
+  const search = () => {};
   const SearchForm = (
     <div>
       <Select
-        defaultValue={projectType}
+        defaultValue=""
+        value={projectType}
         style={{ width: 150, marginRight: '30px' }}
         onChange={(value) => setProjectType(value)}
       >
@@ -28,7 +39,12 @@ export default function ProjectManage(): JSX.Element {
         value={projectName}
         onChange={(e) => setProjectName(e.target.value)}
       />
-      <Button type="primary">重置</Button>
+      <Button type="primary" onClick={search} style={{ marginRight: '30px' }}>
+        查询
+      </Button>
+      <Button type="primary" onClick={reset}>
+        重置
+      </Button>
     </div>
   );
   const columns = [
@@ -105,7 +121,7 @@ export default function ProjectManage(): JSX.Element {
 
   return (
     <div>
-      <ProjectHeader />
+      <ProjectHeader getProjectInfo={() => getProjectInfo} />
       <div className={style.contanier}>
         <Tabs defaultActiveKey="1">
           <TabPane tab="本地项目管理" key="localProject">
@@ -122,4 +138,4 @@ export default function ProjectManage(): JSX.Element {
       </div>
     </div>
   );
-}
+};
