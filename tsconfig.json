@@ -11,7 +11,10 @@
     "pretty": true,
     "sourceMap": true,
     /* Additional Checks */
+    "skipLibCheck": true, // 跳过所有声明文件的类型检查
+    "experimentalDecorators": true, // 启用对ES装饰器的实验性支持
     "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true, // 不允许对同一个文件使用不一致格式的引用
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

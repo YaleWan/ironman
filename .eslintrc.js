@@ -6,6 +6,10 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
+    'react/prop-types': 0,
+    'import/no-cycle': 0,
+    'promise/always-return': 'off',
+    'no-restricted-syntax': 0,
   },
   parserOptions: {
     ecmaVersion: 2020,
