@@ -19,7 +19,31 @@ const LocalProject: React.FC<IProps> = ({ tableData }) => {
     setProjectType('');
   }
   function search() {}
-
+  function generateProjectTag(dependencies: { [propName: string]: string }) {
+    interface ITag {
+      type: string;
+      color: string;
+    }
+    const result: Array<ITag> = [];
+    const tagMap = [
+      { type: 'vue', color: '#3fb984' },
+      { type: 'react', color: '#61dafb' },
+      { type: 'typescript', color: '#294e80' },
+    ];
+    for (const dep of Object.keys(dependencies)) {
+      tagMap.forEach((tag) => {
+        if (dep.includes(tag.type)) {
+          result.push(tag);
+        }
+      });
+    }
+    const tags = [...new Set(result)];
+    return tags.map((tag) => (
+      <Tag color={tag.color} key={tag.type}>
+        {tag.type}
+      </Tag>
+    ));
+  }
   const SearchForm = (
     <div>
       <Select
@@ -83,44 +107,7 @@ const LocalProject: React.FC<IProps> = ({ tableData }) => {
       ),
     },
   ];
-  // (dependencies: Array<string>) => (
-  //   <>
-  //     {dependencies.map((dependencie: string) => {
-  //       const map = [
-  //         { type: 'vue', color: '#3fb984' },
-  //         { type: 'react', color: '#61dafb' },
-  //         { type: 'typescript', color: '#294e80' },
-  //       ];
-  //       let tag = {};
-  //       map.forEach((item) => {
-  //         if (dependencie.includes(item.type)) {
-  //           tag = item;
-  //         }
-  //       });
-  //       return (
-  //         <Tag color={tag.color} key={tag.type}>
-  //           {tag.type}
-  //         </Tag>
-  //       );
-  //     })}
-  //   </>
-  // ),
-  function generateProjectTag(dependencies) {
-    const result = [];
-    const tagMap = [
-      { type: 'vue', color: '#3fb984' },
-      { type: 'react', color: '#61dafb' },
-      { type: 'typescript', color: '#294e80' },
-    ];
-    for (const dep of Object.keys(dependencies)) {
-      tagMap.forEach((tag) => {
-        if (dep.includes(tag.type)) {
-          result.push(tag);
-        }
-      });
-    }
-    console.log('result :>> ', [...new Set(result)]);
-  }
+
   return (
     <div>
       {SearchForm}

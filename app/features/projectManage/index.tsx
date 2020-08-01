@@ -25,14 +25,6 @@ const ProjectManage: React.FC = () => {
   function getProjectInfo(projectArr: Array<IProjectInfo>) {
     dispatch(setProjects(projectArr));
   }
-  function getProjectList() {
-    return projects.map((item: IProjectInfo) => {
-      return {
-        name: item.name,
-        key: item.name,
-      };
-    });
-  }
   // 查找所有的项目信息
   async function findAllProjectInfo(projectDirs: string[], path: string) {
     const projectarr = [];
