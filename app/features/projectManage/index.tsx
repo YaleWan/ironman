@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Tabs } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { openWorkSpace } from '@app/utils/electronApi';
 import { readDir, readJson } from '@app/utils/file';
 import ProjectHeader from './ProjectHeader';
 import style from './index.scss';
-import { selectProject, setProjects } from './projectSlice';
+import {
+  selectProject,
+  setProjects,
+  selectWorkspace,
+  setWorkspace,
+} from './projectSlice';
 import LocalProject from './LocalProject';
 
 const { TabPane } = Tabs;
@@ -16,9 +21,8 @@ export interface IProjectInfo {
 }
 
 const ProjectManage: React.FC = () => {
-  const [workspace, setWorkspace] = useState<string>('');
-
   const projects = useSelector(selectProject);
+  const workspace = useSelector(selectWorkspace);
   const dispatch = useDispatch();
 
   // 获取项目信息
@@ -37,7 +41,7 @@ const ProjectManage: React.FC = () => {
   }
 
   // 查找当前工作区下所有的项目
-  async function findAllProject(path: string) {
+  async function findAllProject(path: string = workspace) {
     const projectDirs: string[] = await readDir(path);
     findAllProjectInfo(projectDirs, path);
   }
@@ -45,7 +49,7 @@ const ProjectManage: React.FC = () => {
   // 打开资源管理器
   async function handleOpenExplorer() {
     const filePath: string = await openWorkSpace();
-    setWorkspace(filePath);
+    dispatch(setWorkspace(filePath));
     findAllProject(filePath);
   }
 
@@ -53,6 +57,7 @@ const ProjectManage: React.FC = () => {
     <div>
       <ProjectHeader
         openExplorer={handleOpenExplorer}
+        findAllProject={findAllProject}
         workspace={workspace}
         projectCont={projects.length}
       />

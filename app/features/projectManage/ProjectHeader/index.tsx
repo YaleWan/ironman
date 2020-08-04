@@ -1,5 +1,5 @@
 import { Popover } from 'antd';
-import React from 'react';
+import React, { memo } from 'react';
 
 import {
   QuestionCircleOutlined,
@@ -12,19 +12,21 @@ interface IProps {
   workspace: string;
   projectCont: number;
   openExplorer: () => void;
+  findAllProject: () => void;
 }
 
 const ProjectHeader: React.FC<IProps> = ({
   openExplorer,
   workspace,
   projectCont,
+  findAllProject,
 }) => {
   return (
     <div className={style.projectHeader}>
       <div className={style.headerLeft}>
         项目管理
         <span> ({projectCont}) </span>
-        <Popover content="当前项目的数量" placement="right">
+        <Popover content="当前工作区下项目的数量" placement="right">
           <QuestionCircleOutlined />
         </Popover>
       </div>
@@ -33,10 +35,10 @@ const ProjectHeader: React.FC<IProps> = ({
           当前工作区：
           {workspace}
         </span>
-        <ReloadOutlined />
+        <ReloadOutlined onClick={() => findAllProject()} />
         <FolderOpenOutlined onClick={() => openExplorer()} />
       </div>
     </div>
   );
 };
-export default ProjectHeader;
+export default memo(ProjectHeader);

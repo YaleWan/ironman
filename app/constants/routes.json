@@ -2,5 +2,6 @@
   "HOME": "/",
   "LOGIN": "/login",
   "COUNTER": "/counter",
-  "PROJECT": "/home/project"
+  "PROJECT": "/home/project",
+  "PROJECT_DETAIL": "/home/projectDetail"
 }

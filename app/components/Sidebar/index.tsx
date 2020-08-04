@@ -12,7 +12,7 @@ export default function Sidebar(): JSX.Element {
   return (
     <div>
       <div className={style.sidebar}>
-        <Avatar src="https://avatars2.githubusercontent.com/u/42661750" />
+        <Avatar src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif" />
         <div className={style.menuItem}>
           <Tooltip title="项目管理" placement="right" color="#000">
             <AppstoreOutlined onClick={jumpTo} />

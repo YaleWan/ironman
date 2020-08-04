@@ -1,7 +1,6 @@
-import React,{ReactNode} from 'react';
+import React from 'react';
 import Login from '../features/login';
 
-export default function HomePage(props:ReactNode) {
-  console.log('props :>> ', props);
+export default function HomePage() {
   return <Login />;
 }
