@@ -1,0 +1,14 @@
+.spaceBetween{
+  display: flex;
+  justify-content: space-between;
+  :global{
+    .ant-avatar{
+      margin-right: 5px;
+    }
+  }
+}
+.icons{
+  span{
+    margin-right: 6px;
+  }
+}

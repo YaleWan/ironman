@@ -1,0 +1,25 @@
+.projectHeader{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  padding: 0 20px;
+
+}
+.headerLeft{
+  font-weight: bold;
+  :global {
+    .anticon{
+      color: #2593fc;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+  }
+}
+.headerRight{
+  font-weight: bold;
+
+}
+

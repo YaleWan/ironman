@@ -4,6 +4,8 @@
  */
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '~antd/dist/antd.css';
+@import '~xterm/css/xterm.css';
+
 
 body {
   position: relative;

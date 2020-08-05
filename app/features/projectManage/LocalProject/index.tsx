@@ -137,7 +137,12 @@ const LocalProject: React.FC<IProps> = ({ tableData }) => {
           </Button>
         </Form.Item>
       </Form>
-      <Table columns={columns} dataSource={projectData} rowKey="name" />
+      <Table
+        columns={columns}
+        dataSource={projectData}
+        rowKey="name"
+        pagination={false}
+      />
     </div>
   );
 };

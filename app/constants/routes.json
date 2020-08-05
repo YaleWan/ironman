@@ -2,6 +2,9 @@
   "HOME": "/",
   "LOGIN": "/login",
   "COUNTER": "/counter",
-  "PROJECT": "/home/project",
-  "PROJECT_DETAIL": "/home/projectDetail"
+  "PROJECT_DETAIL": "/home/projectDetail",
+  "PROJECTS":"/home/projects",
+  "SETTINGS": "/home/settings",
+  "DOCUMENTS": "/home/documents",
+  "TASKS": "/home/tasks"
 }
