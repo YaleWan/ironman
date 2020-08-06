@@ -14,6 +14,63 @@ const ProjectDetail: React.FC<RouteComponentProps> = () => {
   const onCreateTasks = () => {
     tasksFormRef.current.handleCreateProject();
   };
+  const options = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+        smooth: true,
+      },
+    ],
+  };
+  const options2 = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b}: {c} ({d}%)',
+    },
+    legend: {
+      orient: 'vertical',
+      left: 10,
+      data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
+    },
+    series: [
+      {
+        name: '访问来源',
+        type: 'pie',
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          show: false,
+          position: 'center',
+        },
+        emphasis: {
+          label: {
+            show: true,
+            fontSize: '16',
+            fontWeight: 'bold',
+          },
+        },
+        labelLine: {
+          show: false,
+        },
+        data: [
+          { value: 335, name: '直接访问' },
+          { value: 310, name: '邮件营销' },
+          { value: 234, name: '联盟广告' },
+          { value: 135, name: '视频广告' },
+          { value: 1548, name: '搜索引擎' },
+        ],
+      },
+    ],
+  };
+
   return (
     <div>
       <ProjectDetailHeader createTasks={onCreateTasks} />
@@ -47,10 +104,35 @@ const ProjectDetail: React.FC<RouteComponentProps> = () => {
             </Card>
           </div>
           <div className={style.charts}>
-            <TaskCompletionRatesPie />
-            <TaskCompletionRatesPie />
-            <TaskCompletionRatesPie />
-            <TaskCompletionRatesPie />
+            <div>
+              <TaskCompletionRatesPie
+                width="350px"
+                height="350px"
+                options={options}
+              />
+            </div>
+            <div className={style.chartsPie}>
+              <TaskCompletionRatesPie
+                width="150px"
+                height="150px"
+                options={options2}
+              />
+              <TaskCompletionRatesPie
+                width="150px"
+                height="150px"
+                options={options2}
+              />
+              <TaskCompletionRatesPie
+                width="150px"
+                height="150px"
+                options={options2}
+              />
+              <TaskCompletionRatesPie
+                width="150px"
+                height="150px"
+                options={options2}
+              />
+            </div>
           </div>
         </Content>
         <Sider className={style.sider}>

@@ -1,7 +1,5 @@
-.pie{
-  :global{
-    .ring-guide-value{
-      font-size: 12px !important;
-    }
-  }
+.chartContanier{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

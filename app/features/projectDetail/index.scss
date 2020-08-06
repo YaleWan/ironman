@@ -44,7 +44,18 @@
 }
 .charts{
   display: flex;
-  flex-wrap: wrap;
+  >div{
+    width: 50%;
+    background-color: #fff;
+    margin: 10px;
+  }
+  div:nth-child(2){
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.chartsPie{
   div{
+    width: 50%;
   }
 }

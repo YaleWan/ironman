@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/pie';
+import 'echarts/lib/chart/line';
 import 'echarts/lib/component/title';
 
 function useECharts(chartRef, config) {
