@@ -27,7 +27,7 @@ const Projects: React.FC = () => {
   const openProjectDetail = (projectId: number) => {
     history.push(`${routes.PROJECT_DETAIL}/${projectId}`);
   };
-  const map = [1, 2];
+  const map = [1, 2, 3, 4, 5];
   return (
     <div>
       <ProjectHeader createProject={handleCreateProject} />

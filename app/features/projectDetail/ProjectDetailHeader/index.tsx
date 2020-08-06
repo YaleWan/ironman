@@ -1,12 +1,12 @@
 import { Popover, Button } from 'antd';
 import React, { memo } from 'react';
-import { QuestionCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import style from './index.scss';
 
 interface IProps {
-  createProject: () => void;
+  createTasks: () => void;
 }
-const ProjectHeader: React.FC<IProps> = ({ createProject }) => {
+const ProjectHeader: React.FC<IProps> = ({ createTasks }) => {
   return (
     <div className={style.projectHeader}>
       <div className={style.headerLeft}>项目名</div>
@@ -15,7 +15,7 @@ const ProjectHeader: React.FC<IProps> = ({ createProject }) => {
           type="primary"
           icon={<PlusOutlined />}
           shape="round"
-          onClick={createProject}
+          onClick={createTasks}
         >
           新建任务
         </Button>
