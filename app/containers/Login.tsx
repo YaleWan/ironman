@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from '../features/login';
+import Login from '../features/login/index';
 
-export default function HomePage() {
+export default function LoginPage(): JSX.Element {
   return <Login />;
 }

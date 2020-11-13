@@ -3,8 +3,11 @@
   "LOGIN": "/login",
   "COUNTER": "/counter",
   "PROJECT_DETAIL": "/home/projectDetail",
-  "PROJECTS":"/home/projects",
+  "PROJECTS": "/home/projects",
   "SETTINGS": "/home/settings",
   "DOCUMENTS": "/home/documents",
-  "TASKS": "/home/tasks"
+  "TASKS": "/home/tasks",
+  "USER_MANAGEMENT": "/home/userManagement",
+  "ROLE_MANAGEMENT": "/home/roleManagement",
+  "AUTH_MANAGEMENT": "/home/authManagement"
 }

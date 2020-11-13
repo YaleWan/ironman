@@ -1,4 +1,4 @@
-import { Popover, Button } from 'antd';
+import { Button } from 'antd';
 import React, { memo } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import style from './index.scss';

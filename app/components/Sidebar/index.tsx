@@ -37,6 +37,21 @@ export default function Sidebar(): JSX.Element {
       icon: 'SettingFilled',
       path: '/home/settings',
     },
+    {
+      title: '用户管理',
+      icon: 'UserOutlined',
+      path: '/home/userManagement',
+    },
+    {
+      title: '角色管理',
+      icon: 'TeamOutlined',
+      path: '/home/roleManagement',
+    },
+    {
+      title: '权限管理',
+      icon: 'VerifiedOutlined',
+      path: '/home/authManagement',
+    },
   ];
 
   return (
